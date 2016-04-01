@@ -1,0 +1,194 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "d783f125f0a92c1f79039a15f67b2733",
+    "content-hash": "90fbe3ec70fde502b5e2ce8c4ee4fc9c",
+    "packages": [
+        {
+            "name": "justinrainbow/json-schema",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/justinrainbow/json-schema.git",
+                "reference": "9ef71fdf8aa59a93977446468fc718ea01115a83"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/9ef71fdf8aa59a93977446468fc718ea01115a83",
+                "reference": "9ef71fdf8aa59a93977446468fc718ea01115a83",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "json-schema/json-schema-test-suite": "1.1.0",
+                "phpdocumentor/phpdocumentor": "~2",
+                "phpunit/phpunit": "^4.8.22"
+            },
+            "bin": [
+                "bin/validate-json"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JsonSchema\\": "src/JsonSchema/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bruno Prieto Reis",
+                    "email": "bruno.p.reis@gmail.com"
+                },
+                {
+                    "name": "Justin Rainbow",
+                    "email": "justin.rainbow@gmail.com"
+                },
+                {
+                    "name": "Igor Wiedler",
+                    "email": "igor@wiedler.ch"
+                },
+                {
+                    "name": "Robert Schönthal",
+                    "email": "seroscho@googlemail.com"
+                }
+            ],
+            "description": "A library to validate a json schema.",
+            "homepage": "https://github.com/justinrainbow/json-schema",
+            "keywords": [
+                "json",
+                "schema"
+            ],
+            "time": "2016-04-28 14:34:47"
+        },
+        {
+            "name": "lavoiesl/php-benchmark",
+            "version": "v1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lavoiesl/php-benchmark.git",
+                "reference": "3618d0c2e2c0c0e4452a446a8b125295a1d47d4d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lavoiesl/php-benchmark/zipball/3618d0c2e2c0c0e4452a446a8b125295a1d47d4d",
+                "reference": "3618d0c2e2c0c0e4452a446a8b125295a1d47d4d",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lavoiesl\\PhpBenchmark\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sébastien Lavoie",
+                    "email": "github@lavoie.sl",
+                    "homepage": "http://sebastien.lavoie.sl",
+                    "role": "Packager"
+                }
+            ],
+            "description": "Tool to compare different functions in PHP",
+            "time": "2014-03-22 07:38:16"
+        },
+        {
+            "name": "yuloh/json-guard",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yuloh/json-guard.git",
+                "reference": "62b0380c581c881c4d8b2e081b7bb51191f79a1d"
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "json-schema/json-schema-test-suite": "1.1.0",
+                "phpunit/phpunit": "4.*",
+                "scrutinizer/ocular": "~1.1",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "suggest": {
+                "ext-bcmath": "Required to properly check type constraints for numbers larger than PHP_INT_MAX."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yuloh\\JsonGuard\\": "src"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Yuloh\\JsonGuard\\Test\\": "tests"
+                },
+                "files": [
+                    "tests/helpers.php"
+                ]
+            },
+            "scripts": {
+                "test": [
+                    "phpunit"
+                ],
+                "cs": [
+                    "phpcs --standard=psr2 src/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthew Allan",
+                    "email": "matthew.james.allan@gmail.com",
+                    "homepage": "https://mattallan.org",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A validator for JSON using json-schema.",
+            "homepage": "https://github.com/yuloh/json-guard",
+            "keywords": [
+                "Machete",
+                "Validation",
+                "json",
+                "json-schema.org",
+                "schema"
+            ],
+            "time": "2016-04-15 18:31:08"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "yuloh/json-guard": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

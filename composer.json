@@ -1,0 +1,20 @@
+{
+    "name": "yuloh/json-schema-benchmark",
+    "require": {
+        "lavoiesl/php-benchmark": "^1.4",
+        "justinrainbow/json-schema": "^2.0",
+        "yuloh/json-guard": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "Matt Allan",
+            "email": "matthew.james.allan@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/yuloh/json-guard.git"
+        }
+    ]
+}
