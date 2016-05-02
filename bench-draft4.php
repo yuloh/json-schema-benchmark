@@ -9,10 +9,10 @@ declare(ticks=1);
 $benchmark = new Benchmark();
 
 $benchmark->add('yuloh', function () {
-    run_tests('yuloh');
+    bench_draft4_meta('yuloh');
 });
 $benchmark->add('justin-rainbow', function () {
-    run_tests('justin_rainbow');
+    bench_draft4_meta('justin_rainbow');
 });
 
 $benchmark->run();

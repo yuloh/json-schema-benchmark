@@ -9,8 +9,7 @@
     },
     "autoload": {
         "files": [
-            "functions.php",
-            "ChainableRetriever.php"
+            "functions.php"
         ]
     },
     "authors": [

@@ -1,62 +1,48 @@
 <?php
 
-function yuloh($data, $schema)
+/**
+ * @param  object $data       The decoded data
+ * @param  string $schemaPath The absolute path to the file
+ * @param  bool   $isValid    If the data is valid
+ */
+function yuloh($data, $schemaPath, $isValid)
 {
-    $schema = json_decode($schema, false, 512, JSON_BIGINT_AS_STRING);
     $deref  = new Yuloh\JsonGuard\Dereferencer();
-    $schema = $deref->dereference($schema);
+    $schema = $deref->dereference('file://' . $schemaPath);
     $validator = new Yuloh\JsonGuard\Validator($data, $schema);
-    return $validator->errors();
+    $result = $validator->passes();
+    assert('$result === $isValid');
 }
 
-function justin_rainbow($data, $schema)
+/**
+ * @param  object $data       The decoded data
+ * @param  string $schemaPath The absolute path to the file
+ * @param  bool   $isValid    If the data is valid
+ */
+function justin_rainbow($data, $schemaPath, $isValid)
 {
-    $uriRetriever = new JsonSchema\Uri\UriRetriever();
-    $uriRetriever->setUriRetriever(
-        new ChainableRetriever(
-            new JsonSchema\Uri\Retrievers\PredefinedArray(['file://schema' => $schema]),
-            $uriRetriever->getUriRetriever()
-        )
-    );
     $refResolver = new JsonSchema\RefResolver(
-        $uriRetriever,
+        new JsonSchema\Uri\UriRetriever(),
         new JsonSchema\Uri\UriResolver()
     );
 
-    $schema = $refResolver->resolve('file://schema');
+    $schema = $refResolver->resolve('file://' . $schemaPath);
 
     $validator = new JsonSchema\Validator();
     $validator->check($data, $schema);
-    return $validator->getErrors();
+    $result = $validator->isValid();
+    assert('$result === $isValid');
 }
 
-function get_files()
+/**
+ * Benchmark validating the draft4 meta schema against the draft4 meta schema.
+ *
+ * @param  \Callable $callback
+ * @return bool
+ */
+function bench_draft4_meta($callback)
 {
-    $schemaTestSuitePath = realpath(__DIR__ . '/vendor/json-schema/JSON-Schema-Test-Suite/tests/draft4');
-    $required = glob($schemaTestSuitePath . '/*.json');
-    return $required;
-
-    // These aren't all passed by justin-rainbow, so skipping for now.
-    // $optional = glob($schemaTestSuitePath . '/optional/*.json');
-    // return array_merge($required, $optional);
-}
-
-function run_tests($callback)
-{
-    foreach (get_files() as $file) {
-        // skipping for now, since IDK how to make justin rainbow pass this test.
-        if (strpos($file, 'refRemote.json') !== false) {
-            continue;
-        }
-
-        $test = json_decode(file_get_contents($file), false, 512, JSON_BIGINT_AS_STRING);
-
-        foreach ($test as $testCase) {
-            $schema      = $testCase->schema;
-            $description = $testCase->description;
-            foreach ($testCase->tests as $test) {
-                $callback($test->data, json_encode($schema));
-            }
-        }
-    }
+    $path = realpath(__DIR__ . '/draft4.json');
+    $schema = json_decode(file_get_contents($path));
+    return $callback($schema, $path, true);
 }
