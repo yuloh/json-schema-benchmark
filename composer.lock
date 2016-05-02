@@ -114,7 +114,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yuloh/json-guard.git",
-                "reference": "62b0380c581c881c4d8b2e081b7bb51191f79a1d"
+                "reference": "8e6619656431d4df427bbcddfaf04735fd9df959"
             },
             "require": {
                 "php": ">=5.5.0"
@@ -178,7 +178,7 @@
                 "json-schema.org",
                 "schema"
             ],
-            "time": "2016-04-15 18:31:08"
+            "time": "2016-05-02 06:43:24"
         }
     ],
     "packages-dev": [],
