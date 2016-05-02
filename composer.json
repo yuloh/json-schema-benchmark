@@ -3,7 +3,15 @@
     "require": {
         "lavoiesl/php-benchmark": "^1.4",
         "justinrainbow/json-schema": "^2.0",
-        "yuloh/json-guard": "dev-master"
+        "yuloh/json-guard": "dev-master",
+        "json-schema/JSON-Schema-Test-Suite": "1.1.0",
+        "phpunit/phpunit": "^5.3"
+    },
+    "autoload": {
+        "files": [
+            "functions.php",
+            "ChainableRetriever.php"
+        ]
     },
     "authors": [
         {
@@ -15,6 +23,18 @@
         {
             "type": "git",
             "url": "https://github.com/yuloh/json-guard.git"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "json-schema/JSON-Schema-Test-Suite",
+                "version": "1.1.0",
+                "source": {
+                    "url": "https://github.com/json-schema/JSON-Schema-Test-Suite",
+                    "type": "git",
+                    "reference": "1.1.0"
+                }
+            }
         }
     ]
 }
