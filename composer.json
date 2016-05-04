@@ -31,7 +31,8 @@
         }
     ],
     "scripts": {
-        "bench-meta": "phpbench run ./src/MetaValidationBench.php --report=aggregate --output=markdown --progress=none > report-meta.md",
-        "bench-composer": "phpbench run ./src/ComposerBench.php --report=aggregate --output=markdown --progress=none > report-composer.md"
+        "bench-meta": "phpbench run ./src/MetaValidationBench.php --report=aggregate --output=markdown --progress=none > reports/meta.md",
+        "bench-composer": "phpbench run ./src/ComposerBench.php --report=aggregate --output=markdown --progress=none > reports/composer.md",
+        "bench": ["@bench-meta", "@bench-composer"]
     }
 }
