@@ -1,16 +1,14 @@
 {
     "name": "yuloh/json-schema-benchmark",
     "require": {
-        "lavoiesl/php-benchmark": "^1.4",
         "justinrainbow/json-schema": "^2.0",
-        "yuloh/json-guard": "dev-master",
-        "json-schema/JSON-Schema-Test-Suite": "1.1.0",
-        "phpunit/phpunit": "^5.3"
+        "league/json-guard": "0.2.0@dev",
+        "json-schema/JSON-Schema-Test-Suite": "1.1.0"
     },
     "autoload": {
-        "files": [
-            "functions.php"
-        ]
+        "psr-4": {
+            "Yuloh\\JsonSchemaBenchmark\\": "src"
+        }
     },
     "authors": [
         {
@@ -19,10 +17,6 @@
         }
     ],
     "repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/yuloh/json-guard.git"
-        },
         {
             "type": "package",
             "package": {
@@ -35,5 +29,9 @@
                 }
             }
         }
-    ]
+    ],
+    "scripts": {
+        "bench-meta": "phpbench run ./src/MetaValidationBench.php --report=aggregate --output=markdown --progress=none > report-meta.md",
+        "bench-composer": "phpbench run ./src/ComposerBench.php --report=aggregate --output=markdown --progress=none > report-composer.md"
+    }
 }

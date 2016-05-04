@@ -1,0 +1,19 @@
+{
+    "bootstrap": "vendor/autoload.php",
+    "path": "src",
+    "retry_threshold": 5,
+    "outputs": {
+        "csv": {
+            "extends": "delimited",
+            "delimiter": ","
+        }
+    },
+    "reports": {
+        "speed": {
+            "extends": "aggregate",
+            "title": "Speed",
+            "description": "Benchmarks the average time to validate.",
+            "cols": ["subject", "mode"]
+        }
+    }
+}
