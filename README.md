@@ -10,13 +10,13 @@ This repo is a (WIP) benchmark of JSON Schema validators for PHP.
 
 This test validates the [JSON Schema Meta-Schema](http://json-schema.org/documentation.html) against itself.
 
-[View Results](reports/meta.md)
+[View Results](reports/validating-the-meta-schema.md)
 
 ### Composer
 
 This test validates the `composer.json` schema used by Composer against sample data.
 
-[View Results](reports/composer.md)
+[View Results](reports/validating-composer.md)
 
 ## Credits
 

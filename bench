@@ -1,0 +1,34 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+use Yuloh\JsonSchemaBenchmark\ComposerBench;
+use Yuloh\JsonSchemaBenchmark\MetaValidationBench;
+use Yuloh\JsonSchemaBenchmark\BenchmarkRunner;
+use Yuloh\JsonSchemaBenchmark\Reporter;
+
+$config = [
+    'benchmarks' => [
+        [
+            'class' => ComposerBench::class,
+            'title' => 'Validating Composer',
+            'template' => file_get_contents(__DIR__ . '/templates/composer.md')
+        ],
+        [
+            'class' => MetaValidationBench::class,
+            'title' => 'Validating the Meta Schema',
+            'template' => file_get_contents(__DIR__ . '/templates/meta-schema.md')
+        ],
+    ],
+    'subjects' => [
+        'JsonGuard',
+        'JsonSchema'
+    ],
+    'report_path' => __DIR__ . '/reports',
+    'base_path'   => __DIR__,
+    'samples'     => 10,
+];
+
+$results = (new BenchmarkRunner($config))->run();
+(new Reporter($config))->report($results);
