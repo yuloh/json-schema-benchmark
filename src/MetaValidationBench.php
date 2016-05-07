@@ -30,6 +30,7 @@ class MetaValidationBench
     {
         $schema = realpath(__DIR__ . '/../fixtures/schema/draft4.json');
         $data = json_decode(file_get_contents($schema));
-        $validator->validate($data, $schema, true);
+        $result = $validator->validate($data, $schema);
+        assert('$result === true');
     }
 }

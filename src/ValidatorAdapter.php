@@ -7,7 +7,7 @@ interface ValidatorAdapter
     /**
      * @param  object $data       The decoded data
      * @param  string $schemaPath The absolute path to the file
-     * @param  bool   $isValid    If the data is valid
+     * @return bool
      */
-    public function validate($data, $schemaPath, $isValid);
+    public function validate($data, $schemaPath);
 }

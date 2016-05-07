@@ -29,6 +29,7 @@ class ComposerBench
     private static function validate(ValidatorAdapter $validator)
     {
         $data = json_decode(file_get_contents(__DIR__ . '/../fixtures/data/composer.json'));
-        $validator->validate($data, __DIR__ . '/../fixtures/schema/composer-schema.json', true);
+        $result = $validator->validate($data, __DIR__ . '/../fixtures/schema/composer-schema.json');
+        assert('$result === true');
     }
 }

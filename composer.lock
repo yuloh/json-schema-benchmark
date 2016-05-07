@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3bcb67044a52d6c4095d7132542697dd",
-    "content-hash": "7ba50f764ad6e88144f86b29bb7db1fb",
+    "hash": "97f636e5c21cfec8879902fa4bf0734b",
+    "content-hash": "12d971408d1a218ba9450fbc6e8dbb1f",
     "packages": [
         {
             "name": "blackfire/php-sdk",
@@ -139,11 +139,17 @@
         },
         {
             "name": "league/json-guard",
-            "version": "v0.2.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/json-guard.git",
-                "reference": "820ea5f59678d0f37a757831d539ceadbc2bff1c"
+                "reference": "bb14e75f115e365e4aee7d0f0966798bc44fe1a5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/json-guard/zipball/bb14e75f115e365e4aee7d0f0966798bc44fe1a5",
+                "reference": "bb14e75f115e365e4aee7d0f0966798bc44fe1a5",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.5.0"
@@ -172,22 +178,7 @@
                     "src/functions.php"
                 ]
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "League\\JsonGuard\\Test\\": "tests"
-                },
-                "files": [
-                    "tests/helpers.php"
-                ]
-            },
-            "scripts": {
-                "test": [
-                    "phpunit"
-                ],
-                "cs": [
-                    "phpcs --standard=psr2 src/"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -202,13 +193,13 @@
             "description": "A validator for JSON using json-schema.",
             "homepage": "https://github.com/thephpleague/json-guard",
             "keywords": [
-                "Validation",
                 "json",
                 "json-schema",
                 "json-schema.org",
-                "schema"
+                "schema",
+                "validation"
             ],
-            "time": "2016-05-04 15:45:55"
+            "time": "2016-05-06 20:12:02"
         },
         {
             "name": "twig/twig",

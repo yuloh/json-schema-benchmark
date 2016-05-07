@@ -6,12 +6,12 @@ use Blackfire\Client;
 
 class BenchmarkRunner
 {
-    public function __construct(array $config)
+    public function __construct(array $benchmarks, array $subjects, $samples)
     {
-        $this->client  = new Client();
-        $this->samples    = $config['samples'];
-        $this->benchmarks = $config['benchmarks'];
-        $this->subjects   = $config['subjects'];
+        $this->benchmarks = $benchmarks;
+        $this->subjects   = $subjects;
+        $this->samples    = $samples;
+        $this->client     = new Client();
     }
 
     public function run()

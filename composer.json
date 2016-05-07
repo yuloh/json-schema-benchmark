@@ -2,7 +2,7 @@
     "name": "yuloh/json-schema-benchmark",
     "require": {
         "justinrainbow/json-schema": "^2.0",
-        "league/json-guard": "0.2.0@dev",
+        "league/json-guard": "dev-master@dev",
         "json-schema/JSON-Schema-Test-Suite": "1.1.0",
         "blackfire/php-sdk": "^1.5",
         "yuloh/neko": "^0.1.0",
@@ -32,10 +32,5 @@
                 }
             }
         }
-    ],
-    "scripts": {
-        "bench-meta": "phpbench run ./src/MetaValidationBench.php --report=aggregate --output=markdown --progress=none > reports/meta.md",
-        "bench-composer": "phpbench run ./src/ComposerBench.php --report=aggregate --output=markdown --progress=none > reports/composer.md",
-        "bench": ["@bench-meta", "@bench-composer"]
-    }
+    ]
 }

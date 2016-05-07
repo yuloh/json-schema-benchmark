@@ -1,0 +1,72 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+use Yuloh\JsonSchemaBenchmark\Reporter;
+use Yuloh\JsonSchemaBenchmark\TestRunner;
+use Yuloh\JsonSchemaBenchmark\BenchmarkRunner;
+
+$config = require __DIR__ . '/config.php';
+
+$templates = array_merge(
+    get_templates($config['tests']),
+    get_templates($config['benchmarks'])
+);
+
+cleanup($config['report_path']);
+
+(function () use ($config, $templates) {
+    $results = (new TestRunner($config['tests'], $config['subjects']))->run();
+
+    (new Reporter($config['base_path'], $config['report_path'], $templates))
+        ->report($results, ['Test Failures' => 'failures']);
+})();
+
+(function () use ($config, $templates) {
+    $results = (
+        new BenchmarkRunner(
+            $config['benchmarks'],
+            $config['subjects'],
+            $config['samples']
+        )
+    )->run();
+
+    $metrics = [
+        'Peak Memory Usage (in bytes)' => 'pmu',
+        'Wall Clock Time (in microseconds)' => 'wt'
+    ];
+
+    (new Reporter($config['base_path'], $config['report_path'], $templates))
+        ->report($results, $metrics);
+})();
+
+function get_templates($section)
+{
+    $keys = array_values(array_map(function ($section) {
+        return $section['title'];
+    }, $section));
+
+    $values = array_values(array_map(function ($section) {
+        return $section['template'];
+    }, $section));
+
+    return array_combine($keys, $values);
+}
+
+function cleanup($path)
+{
+    $contents = new \RecursiveIteratorIterator(
+        new \RecursiveDirectoryIterator($path, \FilesystemIterator::SKIP_DOTS),
+        \RecursiveIteratorIterator::CHILD_FIRST
+    );
+
+    /** @var \SplFileInfo $file */
+    foreach ($contents as $file) {
+        if ($file->getType() === 'dir') {
+            rmdir($file->getRealPath());
+        } else {
+            unlink($file->getRealPath());
+        }
+    }
+}

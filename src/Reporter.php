@@ -3,113 +3,44 @@
 namespace Yuloh\JsonSchemaBenchmark;
 
 use function Yuloh\Neko\kebab_case;
-use function Yuloh\Neko\pascal_case;
 
 class Reporter
 {
-    private $labels = [
-        'pmu' => 'Peak Memory Usage (in bytes)',
-        'wt'  => 'Wall Clock Time (in microseconds)'
-    ];
-
-    public function __construct($config)
+    public function __construct($basePath, $reportPath, $templates)
     {
-        $this->reportPath = $config['report_path'];
-        $this->templates  = $this->getTemplates($config['benchmarks']);
-        $this->basePath   = $config['base_path'];
+        $this->basePath   = $basePath;
+        $this->reportPath = $reportPath;
+        $this->templates  =  $templates;
     }
 
-    private function getTemplates($benchmarks)
+    public function report(array $testResults, array $metrics)
     {
-        $keys = array_values(array_map(function ($benchmark) {
-            return $benchmark['title'];
-        }, $benchmarks));
-
-        $values = array_values(array_map(function ($benchmark) {
-            return $benchmark['template'];
-        }, $benchmarks));
-
-        return array_combine($keys, $values);
-    }
-
-    public function report(array $results)
-    {
-        $this->cleanup();
-
-        foreach ($results as $title => $benchmarkResults) {
-            $memChartPath = $this->generateChart($title, 'pmu', $benchmarkResults);
-            $perfChartPath = $this->generateChart($title, 'wt', $benchmarkResults);
-            $this->generateMarkdownReport(
-                $title,
-                $benchmarkResults,
-                $memChartPath,
-                $perfChartPath
-            );
-        }
-    }
-
-    private function cleanup()
-    {
-        $contents = new \RecursiveIteratorIterator(
-            new \RecursiveDirectoryIterator($this->reportPath, \FilesystemIterator::SKIP_DOTS),
-            \RecursiveIteratorIterator::CHILD_FIRST
-        );
-
-        /** @var \SplFileInfo $file */
-        foreach ($contents as $file) {
-            if ($file->getType() === 'dir') {
-                rmdir($file->getRealPath());
-            } else {
-                unlink($file->getRealPath());
+        foreach ($testResults as $title => $results) {
+            $charts = [];
+            foreach ($metrics as $label => $metric) {
+                $charts[$metric] = $this->generateChart($title, $results, $label, $metric);
             }
+            $this->generateMarkdownReport($title, $results, $charts);
         }
     }
 
-    private function generateMarkdownReport($title, $results, $memChartPath, $perfChartPath)
+    private function generateChart($title, $results, $label, $metric)
     {
-        $loader = new \Twig_Loader_Array($this->templates);
-        $twig = new \Twig_Environment($loader);
-
-        foreach ($results as $validator => $result) {
-            $results[$validator]['validator'] = $validator;
-        }
-
-        $data = [
-            'chart' => [
-                'speed' => str_replace($this->basePath, '', $perfChartPath),
-                'memory' => str_replace($this->basePath, '', $memChartPath),
-            ],
-            'results' => $results
-        ];
-
-        $reportPath = $this->reportPath . '/' . kebab_case($title) . '.md';
-        file_put_contents($reportPath, $twig->render($title, $data));
-    }
-
-    private function pluckDataset($benchmarkResults, $metric)
-    {
-        return array_values(array_map(function ($cost) use ($metric) {
-            return $cost[$metric];
-        }, $benchmarkResults));
-    }
-
-    private function generateChart($title, $metric, array $benchmarkResults)
-    {
-        $subjects = array_keys($benchmarkResults);
-
-        $dataset = [
-            [
-                'label'           => $this->labels[$metric],
-                'backgroundColor' => 'rgba(255,99,132,0.2)',
-                'borderColor'     => 'rgba(255,99,132,1)',
-                'borderWidth'     => 1,
-                'data'            => $this->pluckDataset($benchmarkResults, $metric)
-            ]
-        ];
+        $resultData = array_values(array_map(function ($result) use ($metric) {
+            return $result[$metric];
+        }, $results));
 
         $data = json_encode([
-            'labels'   => $subjects,
-            'datasets' => $dataset
+            'labels'   => array_keys($results),
+            'datasets' => [
+                [
+                    'label'           => $label,
+                    'backgroundColor' => 'rgba(255,99,132,0.2)',
+                    'borderColor'     => 'rgba(255,99,132,1)',
+                    'borderWidth'     => 1,
+                    'data'            => $resultData
+                ]
+            ]
         ]);
 
         $outPath = $this->reportPath . '/' . kebab_case($title . ucfirst($metric)) . '.png';
@@ -120,6 +51,23 @@ class Reporter
             escapeshellarg($outPath)
         );
         system($cmd);
+
         return $outPath;
+    }
+
+    private function generateMarkdownReport($title, $results, $charts)
+    {
+        $loader = new \Twig_Loader_Array($this->templates);
+        $twig = new \Twig_Environment($loader);
+
+        $data = [
+            'chart' => array_map(function ($chart) {
+                return str_replace($this->basePath, '', $chart);
+            }, $charts),
+            'results' => $results
+        ];
+
+        $reportPath = $this->reportPath . '/' . kebab_case($title) . '.md';
+        file_put_contents($reportPath, $twig->render($title, $data));
     }
 }

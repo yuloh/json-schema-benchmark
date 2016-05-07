@@ -1,14 +1,10 @@
-#!/usr/bin/env php
 <?php
-
-require __DIR__ . '/vendor/autoload.php';
 
 use Yuloh\JsonSchemaBenchmark\ComposerBench;
 use Yuloh\JsonSchemaBenchmark\MetaValidationBench;
-use Yuloh\JsonSchemaBenchmark\BenchmarkRunner;
-use Yuloh\JsonSchemaBenchmark\Reporter;
+use Yuloh\JsonSchemaBenchmark\DraftFourComplianceTest;
 
-$config = [
+return [
     'benchmarks' => [
         [
             'class' => ComposerBench::class,
@@ -21,6 +17,13 @@ $config = [
             'template' => file_get_contents(__DIR__ . '/templates/meta-schema.md')
         ],
     ],
+    'tests' => [
+        [
+            'class' => DraftFourComplianceTest::class,
+            'title' => 'Draft Four Compliance',
+            'template' => file_get_contents(__DIR__ . '/templates/draft-four-compliance.md')
+        ]
+    ],
     'subjects' => [
         'JsonGuard',
         'JsonSchema'
@@ -29,6 +32,3 @@ $config = [
     'base_path'   => __DIR__,
     'samples'     => 10,
 ];
-
-$results = (new BenchmarkRunner($config))->run();
-(new Reporter($config))->report($results);

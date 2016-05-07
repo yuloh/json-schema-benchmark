@@ -9,12 +9,11 @@ class JsonGuardAdapter implements ValidatorAdapter
     /**
      * {@inheritdoc}
      */
-    public function validate($data, $schemaPath, $isValid)
+    public function validate($data, $schemaPath)
     {
         $deref  = new League\JsonGuard\Dereferencer();
         $schema = $deref->dereference('file://' . $schemaPath);
         $validator = new League\JsonGuard\Validator($data, $schema);
-        $result = $validator->passes();
-        assert('$result === $isValid');
+        return $validator->passes();
     }
 }

@@ -6,20 +6,20 @@ This test checks the performance of validating the meta schema which defines JSO
 
 ## Time To Validate
 
-![validation-speed]({{ chart.speed }})
+![validation-speed]({{ chart.wt }})
 
 | Validator | Wall Clock Time (in microseconds) |
 |-----------|:---------------------------------:|
-{% for result in results %}
-| {{ result.validator }} | {{ result.wt }} |
+{% for subject, result in results %}
+| {{ subject }} | {{ result.wt }} |
 {% endfor %}
 
 ## Memory usage
 
-![validation-memory-usage]({{ chart.memory }})
+![validation-memory-usage]({{ chart.pmu }})
 
 | Validator | Peak Memory Usage (in bytes) |
 |-----------|:----------------------------:|
-{% for result in results %}
-| {{ result.validator }} | {{ result.pmu }} |
+{% for subject, result in results %}
+| {{ subject }} | {{ result.pmu }} |
 {% endfor %}

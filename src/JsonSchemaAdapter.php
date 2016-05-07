@@ -9,7 +9,7 @@ class JsonSchemaAdapter implements ValidatorAdapter
     /**
      * {@inheritdoc}
      */
-    public function validate($data, $schemaPath, $isValid)
+    public function validate($data, $schemaPath)
     {
         $refResolver = new JsonSchema\RefResolver(
             new JsonSchema\Uri\UriRetriever(),
@@ -20,7 +20,6 @@ class JsonSchemaAdapter implements ValidatorAdapter
 
         $validator = new JsonSchema\Validator();
         $validator->check($data, $schema);
-        $result = $validator->isValid();
-        assert('$result === $isValid');
+        return $validator->isValid();
     }
 }
