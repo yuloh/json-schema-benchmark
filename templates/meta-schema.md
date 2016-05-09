@@ -1,10 +1,10 @@
-# Meta Schema Validaton
+## Meta Schema Validaton
 
-## Introduction
+### Introduction
 
 This test checks the performance of validating the meta schema which defines JSON Schema against itself.  The meta schema contains a lot of references and most (all?) allowed validation keywords, so it's a pretty good way to check performance.
 
-## Time To Validate
+### Time To Validate
 
 ![validation-speed]({{ chart.wt }})
 
@@ -14,7 +14,7 @@ This test checks the performance of validating the meta schema which defines JSO
 | {{ subject }} | {{ result.wt }} |
 {% endfor %}
 
-## Memory usage
+### Memory usage
 
 ![validation-memory-usage]({{ chart.pmu }})
 

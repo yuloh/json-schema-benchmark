@@ -1,10 +1,10 @@
-# Composer Schema Validaton
+## Composer Schema Validaton
 
-## Introduction
+### Introduction
 
 This test checks the performance of validating a composer.json file against the schema the composer project uses.  This test was picked because it's an actual schema being used for a single file without references.  This should give a decent indication of performance when validating without references.
 
-## Time To Validate
+### Time To Validate
 
 ![validation-speed]({{ chart.wt }})
 
@@ -14,7 +14,7 @@ This test checks the performance of validating a composer.json file against the 
 | {{ subject }} | {{ result.wt }} |
 {% endfor %}
 
-## Memory usage
+### Memory usage
 
 ![validation-memory-usage]({{ chart.pmu }})
 

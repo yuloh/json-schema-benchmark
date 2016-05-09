@@ -16,6 +16,7 @@ $templates = array_merge(
 
 cleanup($config['report_path']);
 
+// Tests
 (function () use ($config, $templates) {
     $results = (new TestRunner($config['tests'], $config['subjects']))->run();
 
@@ -23,6 +24,7 @@ cleanup($config['report_path']);
         ->report($results, ['Test Failures' => 'failures']);
 })();
 
+// Benchmarks
 (function () use ($config, $templates) {
     $results = (
         new BenchmarkRunner(
@@ -39,6 +41,27 @@ cleanup($config['report_path']);
 
     (new Reporter($config['base_path'], $config['report_path'], $templates))
         ->report($results, $metrics);
+})();
+
+// README
+(function () use ($config) {
+
+    $loader = new \Twig_Loader_Array([
+        'README.md' => file_get_contents(__DIR__ . '/templates/README.md')
+    ]);
+    $twig   = new \Twig_Environment($loader);
+
+    $keys = array_map(function ($path) use ($config) {
+        return str_replace('-', '_', basename($path, '.md'));
+    }, glob($config['report_path'] . '/*.md'));
+
+    $values = array_map(function ($path) {
+        return file_get_contents($path);
+    }, glob($config['report_path'] . '/*.md'));
+
+    $data = array_combine($keys, $values);
+
+    file_put_contents(__DIR__ . '/README.md', $twig->render('README.md', $data));
 })();
 
 function get_templates($section)

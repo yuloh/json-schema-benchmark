@@ -1,10 +1,10 @@
-# Draft Four Compliance
+## Draft Four Compliance
 
-## Description
+### Description
 
 This test uses the official JSON Schema test suite to determine the validator's compliance with the official Draft 4 specification.
 
-## Results
+### Results
 
 ![test-failures]({{ chart.failures }})
 
@@ -16,7 +16,7 @@ This test uses the official JSON Schema test suite to determine the validator's 
 
 {% for subject, result in results %}
 
-## {{ subject }}
+### {{ subject }}
 
 {% if result.messages %}
 {% for message in result.messages %}

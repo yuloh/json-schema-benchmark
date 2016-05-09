@@ -1,19 +1,19 @@
-# Meta Schema Validaton
+## Meta Schema Validaton
 
-## Introduction
+### Introduction
 
 This test checks the performance of validating the meta schema which defines JSON Schema against itself.  The meta schema contains a lot of references and most (all?) allowed validation keywords, so it's a pretty good way to check performance.
 
-## Time To Validate
+### Time To Validate
 
 ![validation-speed](/reports/validating-the-meta-schema-wt.png)
 
 | Validator | Wall Clock Time (in microseconds) |
 |-----------|:---------------------------------:|
-| JsonGuard | 15296.9 |
-| JsonSchema | 79044.1 |
+| JsonGuard | 15802.8 |
+| JsonSchema | 96509.7 |
 
-## Memory usage
+### Memory usage
 
 ![validation-memory-usage](/reports/validating-the-meta-schema-pmu.png)
 

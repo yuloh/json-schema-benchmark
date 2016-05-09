@@ -1,10 +1,10 @@
-# Draft Four Compliance
+## Draft Four Compliance
 
-## Description
+### Description
 
 This test uses the official JSON Schema test suite to determine the validator's compliance with the official Draft 4 specification.
 
-## Results
+### Results
 
 ![test-failures](/reports/draft-four-compliance-failures.png)
 
@@ -14,11 +14,11 @@ This test uses the official JSON Schema test suite to determine the validator's 
 | JsonSchema | 6 |
 
 
-## JsonGuard
+### JsonGuard
 
 No test failures.
 
-## JsonSchema
+### JsonSchema
 
 * change resolution scope : changed scope ref valid
 * change resolution scope : changed scope ref valid

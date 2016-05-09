@@ -4,19 +4,82 @@
 
 This repo is a (WIP) benchmark of JSON Schema validators for PHP.
 
-## Tests
+## Meta Schema Validaton
 
-### Meta Validation
+### Introduction
 
-This test validates the [JSON Schema Meta-Schema](http://json-schema.org/documentation.html) against itself.
+This test checks the performance of validating the meta schema which defines JSON Schema against itself.  The meta schema contains a lot of references and most (all?) allowed validation keywords, so it's a pretty good way to check performance.
 
-[View Results](reports/validating-the-meta-schema.md)
+### Time To Validate
 
-### Composer
+![validation-speed](/reports/validating-the-meta-schema-wt.png)
 
-This test validates the `composer.json` schema used by Composer against sample data.
+| Validator | Wall Clock Time (in microseconds) |
+|-----------|:---------------------------------:|
+| JsonGuard | 15802.8 |
+| JsonSchema | 96509.7 |
 
-[View Results](reports/validating-composer.md)
+### Memory usage
+
+![validation-memory-usage](/reports/validating-the-meta-schema-pmu.png)
+
+| Validator | Peak Memory Usage (in bytes) |
+|-----------|:----------------------------:|
+| JsonGuard | 138158.4 |
+| JsonSchema | 162374.4 |
+
+## Draft Four Compliance
+
+### Description
+
+This test uses the official JSON Schema test suite to determine the validator's compliance with the official Draft 4 specification.
+
+### Results
+
+![test-failures](/reports/draft-four-compliance-failures.png)
+
+| Validator | Total Test Failures |
+|-----------|:---------------------------------:|
+| JsonGuard | 0 |
+| JsonSchema | 6 |
+
+
+### JsonGuard
+
+No test failures.
+
+### JsonSchema
+
+* change resolution scope : changed scope ref valid
+* change resolution scope : changed scope ref valid
+* change resolution scope : changed scope ref invalid
+* integer : a bignum is an integer
+* number : a bignum is a number
+* string : a bignum is not a string
+
+## Composer Schema Validaton
+
+### Introduction
+
+This test checks the performance of validating a composer.json file against the schema the composer project uses.  This test was picked because it's an actual schema being used for a single file without references.  This should give a decent indication of performance when validating without references.
+
+### Time To Validate
+
+![validation-speed](/reports/validating-composer-wt.png)
+
+| Validator | Wall Clock Time (in microseconds) |
+|-----------|:---------------------------------:|
+| JsonGuard | 5108.7 |
+| JsonSchema | 16509.8 |
+
+### Memory usage
+
+![validation-memory-usage](/reports/validating-composer-pmu.png)
+
+| Validator | Peak Memory Usage (in bytes) |
+|-----------|:----------------------------:|
+| JsonGuard | 143384 |
+| JsonSchema | 170696 |
 
 ## Credits
 
