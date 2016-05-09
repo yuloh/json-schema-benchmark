@@ -4,6 +4,27 @@
 
 This repo is a (WIP) benchmark of JSON Schema validators for PHP.
 
+### How It Works
+
+The validators are profiled using the [Blackfire PHP SDK](https://blackfire.io/docs/reference-guide/php-sdk).
+
+The test results are ran through phantom.js to build the charts and then through twig to build markdown.
+
+### Running The Tests
+
+First you need to start a test server, which is used to test loading remote references:
+
+```bash
+$ node server.js
+```
+
+Now you can run the tests:
+
+```bash
+$ php build-reports
+```
+
+
 ## Meta Schema Validaton
 
 ### Introduction
@@ -27,6 +48,30 @@ This test checks the performance of validating the meta schema which defines JSO
 |-----------|:----------------------------:|
 | JsonGuard | 138158.4 |
 | JsonSchema | 162374.4 |
+
+## Composer Schema Validaton
+
+### Introduction
+
+This test checks the performance of validating a composer.json file against the schema the composer project uses.  This test was picked because it's an actual schema being used for a single file without references.  This should give a decent indication of performance when validating without references.
+
+### Time To Validate
+
+![validation-speed](/reports/validating-composer-wt.png)
+
+| Validator | Wall Clock Time (in microseconds) |
+|-----------|:---------------------------------:|
+| JsonGuard | 5108.7 |
+| JsonSchema | 16509.8 |
+
+### Memory usage
+
+![validation-memory-usage](/reports/validating-composer-pmu.png)
+
+| Validator | Peak Memory Usage (in bytes) |
+|-----------|:----------------------------:|
+| JsonGuard | 143384 |
+| JsonSchema | 170696 |
 
 ## Draft Four Compliance
 
@@ -57,29 +102,6 @@ No test failures.
 * number : a bignum is a number
 * string : a bignum is not a string
 
-## Composer Schema Validaton
-
-### Introduction
-
-This test checks the performance of validating a composer.json file against the schema the composer project uses.  This test was picked because it's an actual schema being used for a single file without references.  This should give a decent indication of performance when validating without references.
-
-### Time To Validate
-
-![validation-speed](/reports/validating-composer-wt.png)
-
-| Validator | Wall Clock Time (in microseconds) |
-|-----------|:---------------------------------:|
-| JsonGuard | 5108.7 |
-| JsonSchema | 16509.8 |
-
-### Memory usage
-
-![validation-memory-usage](/reports/validating-composer-pmu.png)
-
-| Validator | Peak Memory Usage (in bytes) |
-|-----------|:----------------------------:|
-| JsonGuard | 143384 |
-| JsonSchema | 170696 |
 
 ## Credits
 

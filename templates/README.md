@@ -26,8 +26,8 @@ $ php build-reports
 
 
 {{ validating_the_meta_schema|raw }}
-{{ draft_four_compliance|raw }}
 {{ validating_composer|raw }}
+{{ draft_four_compliance|raw }}
 
 ## Credits
 
