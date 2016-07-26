@@ -37,8 +37,8 @@ This test checks the performance of validating the meta schema which defines JSO
 
 | Validator | Wall Clock Time (in microseconds) |
 |-----------|:---------------------------------:|
-| JsonGuard | 15802.8 |
-| JsonSchema | 96509.7 |
+| JsonGuard | 14833.8 |
+| JsonSchema | 80698.6 |
 
 ### Memory usage
 
@@ -46,8 +46,8 @@ This test checks the performance of validating the meta schema which defines JSO
 
 | Validator | Peak Memory Usage (in bytes) |
 |-----------|:----------------------------:|
-| JsonGuard | 138158.4 |
-| JsonSchema | 162374.4 |
+| JsonGuard | 137486.4 |
+| JsonSchema | 161334.4 |
 
 ## Composer Schema Validaton
 
@@ -61,8 +61,8 @@ This test checks the performance of validating a composer.json file against the 
 
 | Validator | Wall Clock Time (in microseconds) |
 |-----------|:---------------------------------:|
-| JsonGuard | 5108.7 |
-| JsonSchema | 16509.8 |
+| JsonGuard | 4898.6 |
+| JsonSchema | 9032.1 |
 
 ### Memory usage
 
@@ -70,8 +70,8 @@ This test checks the performance of validating a composer.json file against the 
 
 | Validator | Peak Memory Usage (in bytes) |
 |-----------|:----------------------------:|
-| JsonGuard | 143384 |
-| JsonSchema | 170696 |
+| JsonGuard | 142152 |
+| JsonSchema | 169544 |
 
 ## Draft Four Compliance
 
@@ -86,7 +86,7 @@ This test uses the official JSON Schema test suite to determine the validator's 
 | Validator | Total Test Failures |
 |-----------|:---------------------------------:|
 | JsonGuard | 0 |
-| JsonSchema | 6 |
+| JsonSchema | 12 |
 
 
 ### JsonGuard
@@ -95,12 +95,18 @@ No test failures.
 
 ### JsonSchema
 
+* forbidden property : property absent
 * change resolution scope : changed scope ref valid
 * change resolution scope : changed scope ref valid
 * change resolution scope : changed scope ref invalid
 * integer : a bignum is an integer
 * number : a bignum is a number
+* integer : a negative bignum is an integer
+* number : a negative bignum is a number
 * string : a bignum is not a string
+* integer comparison : comparison works for very negative numbers
+* float comparison with high precision on negative numbers : comparison works for very negative numbers
+* validation of URIs : a valid protocol-relative URI
 
 
 ## Credits

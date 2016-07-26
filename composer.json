@@ -1,9 +1,9 @@
 {
     "name": "yuloh/json-schema-benchmark",
     "require": {
-        "justinrainbow/json-schema": "^2.0",
-        "league/json-guard": "dev-master@dev",
-        "json-schema/JSON-Schema-Test-Suite": "1.1.0",
+        "justinrainbow/json-schema": "2.0.5",
+        "league/json-guard": "0.3.2",
+        "json-schema/JSON-Schema-Test-Suite": "1.2.0",
         "blackfire/php-sdk": "^1.5",
         "yuloh/neko": "^0.1.0",
         "twig/twig": "~1.0"
@@ -24,11 +24,11 @@
             "type": "package",
             "package": {
                 "name": "json-schema/JSON-Schema-Test-Suite",
-                "version": "1.1.0",
+                "version": "1.2.0",
                 "source": {
                     "url": "https://github.com/json-schema/JSON-Schema-Test-Suite",
                     "type": "git",
-                    "reference": "1.1.0"
+                    "reference": "1.2.0"
                 }
             }
         }
