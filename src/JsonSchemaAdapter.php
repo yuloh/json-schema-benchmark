@@ -11,14 +11,9 @@ class JsonSchemaAdapter implements ValidatorAdapter
      */
     public function validate($data, $schemaPath)
     {
-        $refResolver = new JsonSchema\RefResolver(
-            new JsonSchema\Uri\UriRetriever(),
-            new JsonSchema\Uri\UriResolver()
-        );
-
-        $schema = $refResolver->resolve('file://' . $schemaPath);
-
+        $schema    = (object)['$ref' => 'file://' . $schemaPath];
         $validator = new JsonSchema\Validator();
+
         $validator->check($data, $schema);
         return $validator->isValid();
     }

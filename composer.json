@@ -1,8 +1,8 @@
 {
     "name": "yuloh/json-schema-benchmark",
     "require": {
-        "justinrainbow/json-schema": "2.0.5",
-        "league/json-guard": "0.3.2",
+        "justinrainbow/json-schema": "3.0.1",
+        "league/json-guard": "0.3.3",
         "json-schema/JSON-Schema-Test-Suite": "1.2.0",
         "blackfire/php-sdk": "^1.5",
         "yuloh/neko": "^0.1.0",
@@ -31,6 +31,10 @@
                     "reference": "1.2.0"
                 }
             }
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:digitalkaoz/json-schema.git"
         }
     ]
 }

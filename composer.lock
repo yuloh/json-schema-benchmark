@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "69c362a6f24dd389567001fb4a5449e8",
-    "content-hash": "93e289ac58c61a838357e654aeb6cf04",
+    "hash": "24e0d2bc02df80066c091c29da655cb7",
+    "content-hash": "310b35525c20d2d45a5203e327e58bb7",
     "packages": [
         {
             "name": "blackfire/php-sdk",
-            "version": "v1.5.17",
+            "version": "v1.5.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/blackfireio/php-sdk.git",
-                "reference": "8e75d2f6e1f1817d745c0068e8cf54c385e485ce"
+                "reference": "384509fc7d377b65da3accc81581db8a5c5d56f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blackfireio/php-sdk/zipball/8e75d2f6e1f1817d745c0068e8cf54c385e485ce",
-                "reference": "8e75d2f6e1f1817d745c0068e8cf54c385e485ce",
+                "url": "https://api.github.com/repos/blackfireio/php-sdk/zipball/384509fc7d377b65da3accc81581db8a5c5d56f3",
+                "reference": "384509fc7d377b65da3accc81581db8a5c5d56f3",
                 "shasum": ""
             },
             "require": {
@@ -60,20 +60,20 @@
                 "uprofiler",
                 "xhprof"
             ],
-            "time": "2016-06-22 11:53:07"
+            "time": "2016-08-18 10:42:39"
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "5df9ed0ed0c9506ea6404a23450854e5df15cc12"
+                "reference": "ec21a59414b99501e723b63fd664aa8ead9c5680"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/5df9ed0ed0c9506ea6404a23450854e5df15cc12",
-                "reference": "5df9ed0ed0c9506ea6404a23450854e5df15cc12",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/ec21a59414b99501e723b63fd664aa8ead9c5680",
+                "reference": "ec21a59414b99501e723b63fd664aa8ead9c5680",
                 "shasum": ""
             },
             "require": {
@@ -82,6 +82,7 @@
                 "php": "^5.3.2 || ^7.0"
             },
             "require-dev": {
+                "psr/log": "^1.0",
                 "symfony/process": "^2.5 || ^3.0"
             },
             "suggest": {
@@ -117,7 +118,7 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2016-07-18 23:07:53"
+            "time": "2016-09-04 19:00:06"
         },
         {
             "name": "json-schema/JSON-Schema-Test-Suite",
@@ -131,16 +132,16 @@
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "2.0.5",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/justinrainbow/json-schema.git",
-                "reference": "6b2a33e6a768f96bdc2ead5600af0822eed17d67"
+                "reference": "2128f9de8be4600c3394d94c3918faf67157b76b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/6b2a33e6a768f96bdc2ead5600af0822eed17d67",
-                "reference": "6b2a33e6a768f96bdc2ead5600af0822eed17d67",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/2128f9de8be4600c3394d94c3918faf67157b76b",
+                "reference": "2128f9de8be4600c3394d94c3918faf67157b76b",
                 "shasum": ""
             },
             "require": {
@@ -157,7 +158,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "3.0.x-dev"
                 }
             },
             "autoload": {
@@ -193,20 +194,20 @@
                 "json",
                 "schema"
             ],
-            "time": "2016-06-02 10:59:52"
+            "time": "2016-08-26 12:45:49"
         },
         {
             "name": "league/json-guard",
-            "version": "0.3.2",
+            "version": "0.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/json-guard.git",
-                "reference": "abea61b195da976f99c5c4f38db2837d1a179e74"
+                "reference": "eb6d7f32c570927bc21de90de0c91245084bf024"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/json-guard/zipball/abea61b195da976f99c5c4f38db2837d1a179e74",
-                "reference": "abea61b195da976f99c5c4f38db2837d1a179e74",
+                "url": "https://api.github.com/repos/thephpleague/json-guard/zipball/eb6d7f32c570927bc21de90de0c91245084bf024",
+                "reference": "eb6d7f32c570927bc21de90de0c91245084bf024",
                 "shasum": ""
             },
             "require": {
@@ -258,20 +259,20 @@
                 "schema",
                 "validation"
             ],
-            "time": "2016-07-26 22:50:34"
+            "time": "2016-08-22 19:14:38"
         },
         {
             "name": "twig/twig",
-            "version": "v1.24.1",
+            "version": "v1.25.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "3566d311a92aae4deec6e48682dc5a4528c4a512"
+                "reference": "f16a634ab08d87e520da5671ec52153d627f10f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3566d311a92aae4deec6e48682dc5a4528c4a512",
-                "reference": "3566d311a92aae4deec6e48682dc5a4528c4a512",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/f16a634ab08d87e520da5671ec52153d627f10f6",
+                "reference": "f16a634ab08d87e520da5671ec52153d627f10f6",
                 "shasum": ""
             },
             "require": {
@@ -284,7 +285,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.24-dev"
+                    "dev-master": "1.25-dev"
                 }
             },
             "autoload": {
@@ -319,7 +320,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-05-30 09:11:59"
+            "time": "2016-09-21 23:05:12"
         },
         {
             "name": "yuloh/neko",

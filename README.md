@@ -37,8 +37,8 @@ This test checks the performance of validating the meta schema which defines JSO
 
 | Validator | Wall Clock Time (in microseconds) |
 |-----------|:---------------------------------:|
-| JsonGuard | 14833.8 |
-| JsonSchema | 80698.6 |
+| JsonGuard | 35239.8 |
+| JsonSchema | 255050.7 |
 
 ### Memory usage
 
@@ -46,8 +46,8 @@ This test checks the performance of validating the meta schema which defines JSO
 
 | Validator | Peak Memory Usage (in bytes) |
 |-----------|:----------------------------:|
-| JsonGuard | 137486.4 |
-| JsonSchema | 161334.4 |
+| JsonGuard | 137595.2 |
+| JsonSchema | 180880 |
 
 ## Composer Schema Validaton
 
@@ -61,8 +61,8 @@ This test checks the performance of validating a composer.json file against the 
 
 | Validator | Wall Clock Time (in microseconds) |
 |-----------|:---------------------------------:|
-| JsonGuard | 4898.6 |
-| JsonSchema | 9032.1 |
+| JsonGuard | 9456.9 |
+| JsonSchema | 22026.5 |
 
 ### Memory usage
 
@@ -71,7 +71,7 @@ This test checks the performance of validating a composer.json file against the 
 | Validator | Peak Memory Usage (in bytes) |
 |-----------|:----------------------------:|
 | JsonGuard | 142152 |
-| JsonSchema | 169544 |
+| JsonSchema | 210888 |
 
 ## Draft Four Compliance
 
@@ -86,7 +86,7 @@ This test uses the official JSON Schema test suite to determine the validator's 
 | Validator | Total Test Failures |
 |-----------|:---------------------------------:|
 | JsonGuard | 0 |
-| JsonSchema | 12 |
+| JsonSchema | 19 |
 
 
 ### JsonGuard
@@ -95,9 +95,15 @@ No test failures.
 
 ### JsonSchema
 
+* invalid definition : invalid definition schema
 * forbidden property : property absent
+* nested refs : nested ref invalid
+* remote ref, containing refs itself : remote ref invalid
+* remote ref : remote ref invalid
+* fragment within remote ref : remote fragment invalid
+* ref within remote ref : ref within ref invalid
 * change resolution scope : changed scope ref valid
-* change resolution scope : changed scope ref valid
+* change resolution scope : changed scope ref invalid
 * change resolution scope : changed scope ref invalid
 * integer : a bignum is an integer
 * number : a bignum is a number
@@ -107,6 +113,7 @@ No test failures.
 * integer comparison : comparison works for very negative numbers
 * float comparison with high precision on negative numbers : comparison works for very negative numbers
 * validation of URIs : a valid protocol-relative URI
+* validation of host names : a host name with a component too long
 
 
 ## Credits
