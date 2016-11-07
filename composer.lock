@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "24e0d2bc02df80066c091c29da655cb7",
-    "content-hash": "310b35525c20d2d45a5203e327e58bb7",
+    "hash": "df0434a7115f50facac34f23783e7f15",
+    "content-hash": "3c884b93311b3d856a0bb8834ace08bf",
     "packages": [
         {
             "name": "blackfire/php-sdk",
-            "version": "v1.5.18",
+            "version": "v1.5.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/blackfireio/php-sdk.git",
-                "reference": "384509fc7d377b65da3accc81581db8a5c5d56f3"
+                "reference": "182a6feb031e494c3ef87005c6af5f9082487d73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blackfireio/php-sdk/zipball/384509fc7d377b65da3accc81581db8a5c5d56f3",
-                "reference": "384509fc7d377b65da3accc81581db8a5c5d56f3",
+                "url": "https://api.github.com/repos/blackfireio/php-sdk/zipball/182a6feb031e494c3ef87005c6af5f9082487d73",
+                "reference": "182a6feb031e494c3ef87005c6af5f9082487d73",
                 "shasum": ""
             },
             "require": {
@@ -60,20 +60,20 @@
                 "uprofiler",
                 "xhprof"
             ],
-            "time": "2016-08-18 10:42:39"
+            "time": "2016-10-28 11:57:48"
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.0.4",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "ec21a59414b99501e723b63fd664aa8ead9c5680"
+                "reference": "a795611394b3c05164fd0eb291b492b39339cba4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/ec21a59414b99501e723b63fd664aa8ead9c5680",
-                "reference": "ec21a59414b99501e723b63fd664aa8ead9c5680",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/a795611394b3c05164fd0eb291b492b39339cba4",
+                "reference": "a795611394b3c05164fd0eb291b492b39339cba4",
                 "shasum": ""
             },
             "require": {
@@ -118,7 +118,7 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2016-09-04 19:00:06"
+            "time": "2016-11-02 18:11:27"
         },
         {
             "name": "json-schema/JSON-Schema-Test-Suite",
@@ -132,16 +132,16 @@
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "3.0.1",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/justinrainbow/json-schema.git",
-                "reference": "2128f9de8be4600c3394d94c3918faf67157b76b"
+                "reference": "31b29546f49524cb0123fb5619107a9306444b60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/2128f9de8be4600c3394d94c3918faf67157b76b",
-                "reference": "2128f9de8be4600c3394d94c3918faf67157b76b",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/31b29546f49524cb0123fb5619107a9306444b60",
+                "reference": "31b29546f49524cb0123fb5619107a9306444b60",
                 "shasum": ""
             },
             "require": {
@@ -194,24 +194,25 @@
                 "json",
                 "schema"
             ],
-            "time": "2016-08-26 12:45:49"
+            "time": "2016-10-10 12:37:37"
         },
         {
             "name": "league/json-guard",
-            "version": "0.3.3",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/json-guard.git",
-                "reference": "eb6d7f32c570927bc21de90de0c91245084bf024"
+                "reference": "8e261b76482d5d16c15996596e714b62ae0f2dbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/json-guard/zipball/eb6d7f32c570927bc21de90de0c91245084bf024",
-                "reference": "eb6d7f32c570927bc21de90de0c91245084bf024",
+                "url": "https://api.github.com/repos/thephpleague/json-guard/zipball/8e261b76482d5d16c15996596e714b62ae0f2dbe",
+                "reference": "8e261b76482d5d16c15996596e714b62ae0f2dbe",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.0"
+                "php": ">=5.5.0",
+                "sabre/uri": "^1.1"
             },
             "require-dev": {
                 "ext-bcmath": "*",
@@ -259,20 +260,71 @@
                 "schema",
                 "validation"
             ],
-            "time": "2016-08-22 19:14:38"
+            "time": "2016-11-03 12:50:21"
         },
         {
-            "name": "twig/twig",
-            "version": "v1.25.0",
+            "name": "sabre/uri",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/twigphp/Twig.git",
-                "reference": "f16a634ab08d87e520da5671ec52153d627f10f6"
+                "url": "https://github.com/fruux/sabre-uri.git",
+                "reference": "258b72540fe3f2c0bb395cb40e56f9ae409f93b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/f16a634ab08d87e520da5671ec52153d627f10f6",
-                "reference": "f16a634ab08d87e520da5671ec52153d627f10f6",
+                "url": "https://api.github.com/repos/fruux/sabre-uri/zipball/258b72540fe3f2c0bb395cb40e56f9ae409f93b5",
+                "reference": "258b72540fe3f2c0bb395cb40e56f9ae409f93b5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.7"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*",
+                "sabre/cs": "~1.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "lib/functions.php"
+                ],
+                "psr-4": {
+                    "Sabre\\Uri\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Evert Pot",
+                    "email": "me@evertpot.com",
+                    "homepage": "http://evertpot.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Functions for making sense out of URIs.",
+            "homepage": "http://sabre.io/uri/",
+            "keywords": [
+                "rfc3986",
+                "uri",
+                "url"
+            ],
+            "time": "2016-10-27 04:56:33"
+        },
+        {
+            "name": "twig/twig",
+            "version": "v1.27.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/Twig.git",
+                "reference": "3c6c0033fd3b5679c6e1cb60f4f9766c2b424d97"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3c6c0033fd3b5679c6e1cb60f4f9766c2b424d97",
+                "reference": "3c6c0033fd3b5679c6e1cb60f4f9766c2b424d97",
                 "shasum": ""
             },
             "require": {
@@ -285,7 +337,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.25-dev"
+                    "dev-master": "1.27-dev"
                 }
             },
             "autoload": {
@@ -320,7 +372,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-09-21 23:05:12"
+            "time": "2016-10-25 19:17:17"
         },
         {
             "name": "yuloh/neko",
