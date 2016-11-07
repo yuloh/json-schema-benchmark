@@ -10,8 +10,8 @@ This test checks the performance of validating the meta schema which defines JSO
 
 | Validator | Wall Clock Time (in microseconds) |
 |-----------|:---------------------------------:|
-| JsonGuard | 35239.8 |
-| JsonSchema | 255050.7 |
+| JsonGuard | 32803.2 |
+| JsonSchema | 222773.2 |
 
 ### Memory usage
 
@@ -19,5 +19,5 @@ This test checks the performance of validating the meta schema which defines JSO
 
 | Validator | Peak Memory Usage (in bytes) |
 |-----------|:----------------------------:|
-| JsonGuard | 137595.2 |
-| JsonSchema | 180880 |
+| JsonGuard | 138288 |
+| JsonSchema | 180384 |
