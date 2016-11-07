@@ -37,8 +37,9 @@ This test checks the performance of validating the meta schema which defines JSO
 
 | Validator | Wall Clock Time (in microseconds) |
 |-----------|:---------------------------------:|
-| JsonGuard | 32803.2 |
-| JsonSchema | 222773.2 |
+| JsonGuard | 50629.5 |
+| CachingJsonGuard | 29305.9 |
+| JsonSchema | 250820.5 |
 
 ### Memory usage
 
@@ -47,7 +48,8 @@ This test checks the performance of validating the meta schema which defines JSO
 | Validator | Peak Memory Usage (in bytes) |
 |-----------|:----------------------------:|
 | JsonGuard | 138288 |
-| JsonSchema | 180384 |
+| CachingJsonGuard | 150396 |
+| JsonSchema | 186937.6 |
 
 ## Composer Schema Validaton
 
@@ -61,8 +63,9 @@ This test checks the performance of validating a composer.json file against the 
 
 | Validator | Wall Clock Time (in microseconds) |
 |-----------|:---------------------------------:|
-| JsonGuard | 9614.3 |
-| JsonSchema | 18412.3 |
+| JsonGuard | 9303.5 |
+| CachingJsonGuard | 6138.5 |
+| JsonSchema | 18993.6 |
 
 ### Memory usage
 
@@ -71,6 +74,7 @@ This test checks the performance of validating a composer.json file against the 
 | Validator | Peak Memory Usage (in bytes) |
 |-----------|:----------------------------:|
 | JsonGuard | 142616 |
+| CachingJsonGuard | 180905.6 |
 | JsonSchema | 209424 |
 
 ## Draft Four Compliance
@@ -86,10 +90,15 @@ This test uses the official JSON Schema test suite to determine the validator's 
 | Validator | Total Test Failures |
 |-----------|:---------------------------------:|
 | JsonGuard | 0 |
+| CachingJsonGuard | 0 |
 | JsonSchema | 19 |
 
 
 ### JsonGuard
+
+No test failures.
+
+### CachingJsonGuard
 
 No test failures.
 

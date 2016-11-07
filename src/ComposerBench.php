@@ -15,6 +15,13 @@ class ComposerBench
         self::validate($validator);
     }
 
+    public function benchCachingJsonGuard()
+    {
+        $validator = new CachingJsonGuardAdapter();
+
+        self::validate($validator);
+    }
+
     /**
      * @Revs(50)
      * @Iterations(5)

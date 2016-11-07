@@ -11,6 +11,13 @@ class DraftFourComplianceTest
         return self::runTests($validator);
     }
 
+    public static function testCachingJsonGuard()
+    {
+        $validator = new CachingJsonGuardAdapter();
+
+        self::runTests($validator);
+    }
+
     public static function testJsonSchema()
     {
         $validator = new JsonSchemaAdapter();

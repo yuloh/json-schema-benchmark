@@ -11,10 +11,15 @@ This test uses the official JSON Schema test suite to determine the validator's 
 | Validator | Total Test Failures |
 |-----------|:---------------------------------:|
 | JsonGuard | 0 |
+| CachingJsonGuard | 0 |
 | JsonSchema | 19 |
 
 
 ### JsonGuard
+
+No test failures.
+
+### CachingJsonGuard
 
 No test failures.
 

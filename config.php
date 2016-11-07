@@ -26,6 +26,7 @@ return [
     ],
     'subjects' => [
         'JsonGuard',
+        'CachingJsonGuard',
         'JsonSchema'
     ],
     'report_path' => __DIR__ . '/reports',
