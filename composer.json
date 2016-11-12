@@ -7,7 +7,9 @@
         "blackfire/php-sdk": "^1.5",
         "yuloh/neko": "^0.1.0",
         "twig/twig": "~1.0",
-        "doctrine/cache": "^1.6"
+        "doctrine/cache": "^1.6",
+        "league/json-guard-cached-loader": "dev-master",
+        "cache/doctrine-adapter": "^0.5.0"
     },
     "autoload": {
         "psr-4": {
@@ -36,6 +38,10 @@
         {
             "type": "vcs",
             "url": "git@github.com:digitalkaoz/json-schema.git"
+        },
+        {
+            "type": "path",
+            "url": "../json-guard-cached-loader"
         }
     ]
 }

@@ -10,9 +10,9 @@ This test checks the performance of validating a composer.json file against the 
 
 | Validator | Wall Clock Time (in microseconds) |
 |-----------|:---------------------------------:|
-| JsonGuard | 9303.5 |
-| CachingJsonGuard | 6138.5 |
-| JsonSchema | 18993.6 |
+| JsonGuard | 9902.2 |
+| CachingJsonGuard | 9786.4 |
+| JsonSchema | 19539.5 |
 
 ### Memory usage
 
@@ -21,5 +21,5 @@ This test checks the performance of validating a composer.json file against the 
 | Validator | Peak Memory Usage (in bytes) |
 |-----------|:----------------------------:|
 | JsonGuard | 142616 |
-| CachingJsonGuard | 180905.6 |
+| CachingJsonGuard | 187184.8 |
 | JsonSchema | 209424 |

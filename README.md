@@ -37,9 +37,9 @@ This test checks the performance of validating the meta schema which defines JSO
 
 | Validator | Wall Clock Time (in microseconds) |
 |-----------|:---------------------------------:|
-| JsonGuard | 50629.5 |
-| CachingJsonGuard | 29305.9 |
-| JsonSchema | 250820.5 |
+| JsonGuard | 30933.2 |
+| CachingJsonGuard | 31491 |
+| JsonSchema | 257663.2 |
 
 ### Memory usage
 
@@ -48,7 +48,7 @@ This test checks the performance of validating the meta schema which defines JSO
 | Validator | Peak Memory Usage (in bytes) |
 |-----------|:----------------------------:|
 | JsonGuard | 138288 |
-| CachingJsonGuard | 150396 |
+| CachingJsonGuard | 153588.8 |
 | JsonSchema | 186937.6 |
 
 ## Composer Schema Validaton
@@ -63,9 +63,9 @@ This test checks the performance of validating a composer.json file against the 
 
 | Validator | Wall Clock Time (in microseconds) |
 |-----------|:---------------------------------:|
-| JsonGuard | 9303.5 |
-| CachingJsonGuard | 6138.5 |
-| JsonSchema | 18993.6 |
+| JsonGuard | 9902.2 |
+| CachingJsonGuard | 9786.4 |
+| JsonSchema | 19539.5 |
 
 ### Memory usage
 
@@ -74,7 +74,7 @@ This test checks the performance of validating a composer.json file against the 
 | Validator | Peak Memory Usage (in bytes) |
 |-----------|:----------------------------:|
 | JsonGuard | 142616 |
-| CachingJsonGuard | 180905.6 |
+| CachingJsonGuard | 187184.8 |
 | JsonSchema | 209424 |
 
 ## Draft Four Compliance
